@@ -4,11 +4,10 @@
 # Probability as long-run relative frequency
 # Estimating p(Head) in a coin toss
 
-# Define function
 import pandas as pd, numpy as np, matplotlib.pyplot as plt
 from scipy.stats import binom 
 
-# Define a function
+# Define function
 def lln(n = 1000, chains = 5, **kwargs):
   x = binom.rvs(1, 0.5, size = n * chains).reshape(n, chains)
   df = pd.DataFrame(x)
