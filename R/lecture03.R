@@ -16,6 +16,12 @@ lines(dnorm(x, sd = 1.5) ~ x, col = "red")
 lines(dnorm(x, sd = 2) ~ x, col = "blue")
 lines(dnorm(x, sd = 3) ~ x, col = "purple")
 
+# Do this interactively using Shiny app
+# Require ABACUS package -- install if necessary
+# install.packages("ABACUS")
+# Run Shiny app
+ABACUS::shiny_dnorm()
+
 # CDF of N(0,1)
 # Change the z-score as you wish
 z <- 1.96

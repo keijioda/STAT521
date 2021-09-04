@@ -26,6 +26,22 @@ for (r in seq(-9, 9, by = 3) / 10) {
   plot(sim, pch = ".", col = "red", xlab = "x", ylab = "y", main = paste("Correlation r =", r))
 }
 
+# 3d plot of the standard bivariate normal density
+# Require mvtnorm package
+library(mvtnorm)
+
+# Specify the x- and y-axes
+x <- y <- seq(-4, 4, by = .1)
+
+# Make a grid, calculate density and generate a 3d plot
+expand.grid(x, y) %>%
+  as.matrix() %>% 
+  dmvnorm() %>% 
+  matrix(nrow = length(x)) %>%
+  persp(col = "aquamarine", theta = 30, phi = 20, r = 50, expand = 0.5, 
+        ltheta = 90, lphi = 180, shade = 0.5, axes = FALSE, box = FALSE)
+title("Bivariate normal distribution")
+
 # Power analysis for correlation
 # Require pwr package -- install if necessary
 # install.packages('pwr')
