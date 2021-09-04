@@ -72,7 +72,7 @@ The variance of $X$ is then:
 
 $$Var(X) = E(X^2) - \mu^2 = \frac{12}{5} - \left( \frac{3}{2} \right)^2 = \frac{3}{20}$$
 
-Question: Find the expected value and variance for the following continuous random variables: 
+**Question**: Find the expected value and variance for the following continuous random variables: 
 
 a)	A random variable $X$ with $f(x) = \begin{cases} 6x(1 - x), & 0 \le x \le 1 \\ 0, & \text{elsewhere} \end{cases}$
 
