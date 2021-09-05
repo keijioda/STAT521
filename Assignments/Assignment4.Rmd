@@ -39,7 +39,7 @@ d)	Do you think it is possible that males and females have the same mean systoli
 
 ### Problem 3
 
-3.	Hemoglobin levels in 11-year-old boys vary according to a normal distribution with $\sigma =1.2$ g/dL.
+Hemoglobin levels in 11-year-old boys vary according to a normal distribution with $\sigma =1.2$ g/dL.
 
 a)	How large a sample is needed to estimate mean $\mu$ with 95% confidence so the margin of error is 0.4 g/dL? Do this by hand and verify your answer using SAS, R or Python (see page 2-3 of Lecture 6 note). 
 

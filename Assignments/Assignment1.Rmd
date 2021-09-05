@@ -34,33 +34,30 @@ pr1_tab %>%
 
 a)	Calculate the probability that an applicant picked at random from this group:<br>
 
-  i.	Made a low score on the examination and graduated from a superior high school <br><br>
+    i.	Made a low score on the examination and graduated from a superior high school <br><br>
 
-  ii.	Made a low score on the examination given that he/she graduated from a superior high school <br><br>
+    ii.	Made a low score on the examination given that he/she graduated from a superior high school <br><br>
 
-  iii.	Made a high score or graduated from a superior high school <br><br>
+    iii.	Made a high score or graduated from a superior high school <br><br>
 
 b)	Calculate the following probabilities:<br>
 
-  i.	$P(A | H)$ <br><br>
+    i.	$P(A | H)$ <br><br>
 
-  ii.	$P(M \cap P)$<br><br>
+    ii.	$P(M \cap P)$<br><br>
 
-  iii.	$P(H | S)$<br><br>
+    iii.	$P(H | S)$<br><br>
  
 ### Problem 2
 In a certain population the probability that a randomly selected subject will have been exposed to a certain allergen and experience a reaction to the allergen is 0.6. The probability is 0.8 that a subject exposed to the allergen will experience an allergic reaction. If a subject is selected at random from this population, what is the probability that he or she will have been exposed to the allergen?
-<br><br><br><br><br>
 
 ### Problem 3
 A certain county health department has received 25 applications for an opening that exists for a public health nurse. Of these applicants, 10 are over 30 and 15 are under 30. Seventeen hold bachelor’s degrees only, and eight have master’s degrees. Of those under 30, six have master’s degrees. If a selection from among these 25 applicants is made at random, what is the probability that a person over 30 or a person with a master’s degree will be selected?
-<br><br><br><br><br>
 
 ### Problem 4
 The probability is 0.6 that a patient selected at random from the current residents of a certain hospital will be a male. The probability that the patient will be a male who is in for surgery is 0.2. A patient randomly selected from current residents is found to be a male. What is the probability that the patient is in the hospital for surgery?
-<br><br><br><br><br>
 
 ### Problem 5
 Suppose that 5 percent of men and 0.25 percent of women are color-blind. A color-blind person is chosen at random. What is the probability of this person being male? Assume that there are an equal number of males and females.
-<br><br><br><br><br>
+
 <br><br><br><br><br>
