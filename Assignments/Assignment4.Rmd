@@ -27,7 +27,7 @@ d)	Use SAS, R or Python to verify your answer in part (b) and (c). Attach your o
 
 ### Problem 2 (Computer exercise)
 
-The data set **lowbwt** (see **lowbwt.sas/R/py**) contains information recorded for a sample of 100 low birth weight infants born in two teaching hospitals in Boston, Massachusetts. Measurements of systolic blood pressure are saved under the variable name sbp, while indicators of gender – where 1 represents a male and 0 a female – are saved under sex.
+The data set **lowbwt** (see **Assignment4.sas/R/py**) contains information recorded for a sample of 100 low birth weight infants born in two teaching hospitals in Boston, Massachusetts. Measurements of systolic blood pressure are saved under the variable name sbp, while indicators of gender – where 1 represents a male and 0 a female – are saved under sex.
 
 a)	Use SAS, R or Python to compute the mean and its 95% confidence interval for systolic blood pressure, broken down by gender of low birth weight infants. Attach your output.
 
