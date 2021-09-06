@@ -25,6 +25,14 @@ for (r in seq(-9, 9, by = 3) / 10) {
   sim <- MASS::mvrnorm(5000, mu = c(0, 0), Sigma = Sigma)
   plot(sim, pch = ".", col = "red", xlab = "x", ylab = "y", main = paste("Correlation r =", r))
 }
+par(mfrow = c(1, 1))
+
+# Do this interactively
+# Require tigerstats package -- install if necessary
+# install.packages("tigerstats)
+
+# Click the cog icon on the upper left corner of the plot and change the correlation
+tigerstats::VaryCorrelation(n = 1000)
 
 # 3d plot of the standard bivariate normal density
 # Require mvtnorm package
