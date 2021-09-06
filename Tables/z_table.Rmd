@@ -1,0 +1,90 @@
+---
+title: '*Z* Table: Cumulative probabilities for the standard normal distribution'
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(knitr)
+library(kableExtra)
+library(tidyverse)
+library(tigerstats)
+```
+
+***
+Entries in the table represent $\,P(Z \le z)$, i.e., the area under the standard normal curve to the left of $z$.
+
+  * For $Z \le 0$:
+
+```{r echo = FALSE, fig.height = 2, fig.width = 4, fig.align='center'}
+xlim <- c(-4, 4)
+z <- seq(xlim[1], xlim[2], by = 0.001)
+par(mar = c(1, 1, 1, 1))
+plot(dnorm(z) ~ z, xlim = xlim, type = 'n', axes = FALSE, xlab = "", ylab = "")
+x <- seq(-4, -1.96, by = 0.001)
+px <- c(x, rev(x))
+py <- c(dnorm(x), rep(-0.01, length(x)))
+polygon(px, py, col = "lightblue", border = NA)
+curve(dnorm, add = TRUE, lwd = 2)
+abline(h = -0.01)
+points(0, -0.01, pch = 3)
+mtext(0, 1, cex = 0.8)
+mtext(-1.96, 1, cex = 0.8, at = -1.96)
+text(-3, 0.15, 0.025, cex = 0.8)
+segments(-3, 0.12, -2.3, 0.012)
+
+```
+
+```{r echo = FALSE, results = 'asis'}
+z_neg <- seq(-3.89, 0, by = 0.01) %>%
+  pnorm() %>%
+  round(4) %>% 
+  matrix(nrow = 39, ncol = 10, byrow = TRUE)
+rownames(z_neg) <- as.character(format(-38:0 / 10, digits = 1))
+colnames(z_neg) <- format(-9:0 / 100, digits = 2)
+
+z_neg %>% 
+  as_tibble(rownames = NA) %>%
+  rownames_to_column("z") %>% 
+  kbl() %>% 
+  column_spec(1, bold = T, background = "lightgray") %>%
+  row_spec(0, bold = T, background = "lightgray") %>%
+  kable_paper("hover", full_width = F, html_font = "Cambria", fixed_thead = T)
+```
+
+<br><br><br>
+
+* For $Z \ge 0$:
+```{r echo = FALSE, fig.height = 2, fig.width = 4, fig.align='center'}
+xlim <- c(-4, 4)
+z <- seq(xlim[1], xlim[2], by = 0.001)
+par(mar = c(1, 1, 1, 1))
+plot(dnorm(z) ~ z, xlim = xlim, type = 'n', axes = FALSE, xlab = "", ylab = "")
+x <- seq(-4, 1.96, by = 0.001)
+px <- c(x, rev(x))
+py <- c(dnorm(x), rep(-0.01, length(x)))
+polygon(px, py, col = "lightblue", border = NA)
+curve(dnorm, add = TRUE, lwd = 2)
+abline(h = -0.01)
+points(0, -0.01, pch = 3)
+mtext(0, 1, cex = 0.8)
+mtext(1.96, 1, cex = 0.8, at = 1.96)
+text(0, 0.15, 0.975, cex = 0.8)
+```
+
+```{r echo = FALSE, results = 'asis'}
+z_pos <- seq(0, 3.89, by = 0.01) %>%
+  pnorm() %>%
+  round(4) %>% 
+  matrix(nrow = 39, ncol = 10, byrow = TRUE)
+rownames(z_pos) <- format(0:38 / 10, digits = 1)
+colnames(z_pos) <- format(0:9 / 100, digits = 2)
+
+z_pos %>% 
+  as_tibble(rownames = NA) %>%
+  rownames_to_column("z") %>% 
+  kbl() %>% 
+  column_spec(1, bold = T, background = "lightgray") %>%
+  row_spec(0, bold = T, background = "lightgray") %>%
+  kable_paper("hover", full_width = F, html_font = "Cambria", fixed_thead = T)
+```
