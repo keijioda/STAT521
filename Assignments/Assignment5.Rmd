@@ -7,9 +7,8 @@ output:
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
-library(knitr)
-library(kableExtra)
-library(tidyverse)
+pacs <- c("kableExtra", "tidyverse")
+sapply(pacs, require, character.only = TRUE)
 ```
 **Make sure to show your computation and/or attach appropriate output.**
 

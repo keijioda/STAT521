@@ -7,9 +7,8 @@ output:
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
-library(knitr)
-library(kableExtra)
-library(tidyverse)
+pacs <- c("kableExtra", "tidyverse")
+sapply(pacs, require, character.only = TRUE)
 ```
 **Make sure to show your computation and/or attach appropriate output.**
 
@@ -86,6 +85,8 @@ $$ E\left(\sum^k_x{a_iX_i}\right) =
    E\left(a_1X_1 + a_2X_2 + \cdots + a_kX_k\right) = 
    \sum^k_xa_iE(X_i)$$
 
+\newpage
+
 **Question**: Suppose that discrete random variables $X$ and $Y$ have the following probability distributions:
 
 ```{r echo = FALSE, results = 'asis'}
@@ -95,7 +96,13 @@ rownames(tabx) <- c("x", "p(x)")
 taby <- matrix(c(1:3, 0.5, 0.3, 0.2), ncol = 3, byrow = TRUE)
 rownames(taby) <- c("y", "p(y)")
 
-kbl(list(tabx, taby)) %>% kable_paper(full_width = F, html_font = "Cambria", latex_options = "HOLD_position")
+# kbl(list(tabx, taby)) %>% kable_paper(full_width = F, html_font = "Cambria", latex_options = "HOLD_position")
+
+cat(c("\\begin{table}[h] \\centering ", 
+      kable(tabx),
+    "\\hspace{1cm} \\centering ",
+      kable(taby),
+    "\\end{table}"))  
 ```
 
 Use the properties of the expected value and calculate $E(X)$, $E\left(\frac{1}{X}\right)$, and $E(X^2 + 2Y)$.

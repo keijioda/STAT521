@@ -44,7 +44,7 @@ z_neg %>% show_z_table
 
 * For $Z \ge 0$:
 ```{r echo = FALSE, fig.height = 2, fig.width = 4, fig.align='center'}
-plot_normal_cdf(-1.96)
+plot_normal_cdf(1.96)
 text(0, 0.15, 0.975, cex = 0.8)
 ```
 
