@@ -5,7 +5,7 @@ output: html_document
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
-pacs <- c("knitr", "kableExtra", "tidyverse")
+pacs <- c("kableExtra", "tidyverse")
 sapply(pacs, require, character.only = TRUE)
 R_files <- list.files(pattern = "\\.R$")
 sapply(R_files, source)
