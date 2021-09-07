@@ -1,7 +1,6 @@
 ---
 title: 'STAT 521: Assignment 7'
-output: 
-  pdf_document 
+output: pdf_document 
 ---
 
 ```{r setup, include=FALSE}
@@ -15,9 +14,10 @@ sapply(pacs, require, character.only = TRUE)
 
 A researcher wishes to compare birth weights of infants among four groups of their mothers’ smoking status: non-smokers, ex-smokers, $<1/2$ pack/day, $\ge1/2$ pack/day. Data is given as follows (See Assignment7.sas/R/py for computer analysis):
 
+\begin{document}
 \begin{center}
 \begin{tabular}{ c | c | c | c | c | c}
- & Non-smokers & Ex-smokers & $< \frac{1}{2}$ pack/d & $\ge \frac{1}{2}$ pack/d & \\ 
+ & Non-smoker & Ex-smoker & $< \frac{1}{2}$ pack/d & $\ge \frac{1}{2}$ pack/d & \\ 
  \hline
  & 8.56 & 7.39 & 5.97 & 7.03 & \\  
  & 8.47 & 8.64 & 6.77 & 5.24 & \\  
