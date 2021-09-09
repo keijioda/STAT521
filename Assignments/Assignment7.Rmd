@@ -14,7 +14,7 @@ sapply(pacs, require, character.only = TRUE)
 
 A researcher wishes to compare birth weights of infants among four groups of their mothers’ smoking status: non-smokers, ex-smokers, $<1/2$ pack/day, $\ge1/2$ pack/day. Data is given as follows (See Assignment7.sas/R/py for computer analysis):
 
-\begin{document}
+\bigskip
 \begin{center}
 \begin{tabular}{ c | c | c | c | c | c}
  & Non-smoker & Ex-smoker & $< \frac{1}{2}$ pack/d & $\ge \frac{1}{2}$ pack/d & \\ 
@@ -38,6 +38,7 @@ A researcher wishes to compare birth weights of infants among four groups of the
 \hline
 \end{tabular}
 \end{center}
+\bigskip
 
 a)	State the null and alternative hypotheses.
 
@@ -116,6 +117,8 @@ $$X \sim Uniform(a, b)$$
 A special case of the uniform distribution is when $a = 0$ and $b = 1$: $X \sim Uniform(0, 1)$. This is called the *standard uniform distribution*. The standard uniform distribution has a PDF of $f(x) = 1$ for $0 < x < 1$ and $f(x) = 0$ otherwise.
 
 **Question**: Use the definition of the expected value $E(X) = \int^{\infty}_{-\infty} xf(x) \,dx$ (see Assignment #3) and show that $E(X) = \frac{a + b}{2}$ and $var(X) = \frac{(b - a) ^ 2}{12}$ if $X \sim Uniform(a, b)$.
+
+\bigskip
 
 ### Problem 4 (Biostats students only)
 
