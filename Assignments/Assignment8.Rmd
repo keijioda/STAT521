@@ -1,0 +1,112 @@
+---
+title: 'STAT 521: Assignment 8'
+output: pdf_document 
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+pacs <- c("kableExtra", "tidyverse")
+sapply(pacs, require, character.only = TRUE)
+```
+**Make sure to show your computation and/or attach appropriate output.**
+
+### Problem 1 (Computer exercise)
+A person’s muscle mass is expected to decrease with age. To explore this relationship in women, a nutritionist randomly selected 15 women from each 10-year age group, beginning with age 40 and ending with age 79, and measured their muscle mass.
+
+a)	Create a scatter plot between age and muscle mass. Choose variables for x- and y-axes appropriately. Is there any relationship between age and muscle mass? If so, is the association positive or negative? Does the relationship appear to be linear? Any outliers? **Describe your findings**.
+
+b)	Obtain the Pearson correlation coefficient between age and muscle mass. Is the correlation significantly different from zero? Report the 95% confidence interval for $\rho$
+
+c) Run simple regression. **Again, make sure to choose an appropriate variable for each of $X$ and $Y$**. Report the estimated regression equation. Attach the ANOVA table. What is the value of $R^2$ and its interpretation? What is a point estimate for $\sigma^2$? Produce a scatter plot with the fitted regression line.
+
+d) What is a point estimate of the difference in the mean muscle mass for women differing in age by one year? Report its 95% confidence interval too.
+
+e) Suppose you wish to predict muscle mass of a woman aged 60 based on your regression model. Calculate her predicted muscle mass. Report its 95% prediction interval too. If the woman has muscle mass of 105, what is the value of the residual for her?
+
+f) Is it appropriate to estimate muscle mass of a woman aged 20 using the regression equation you obtained above? Discuss.
+
+g) Produce a residual plot against fitted (predicted) values, as well as a normal probability plot of residuals. Are there any outliers? Are residuals normally distributed? Is there any non-linear pattern in residuals? How about the equal variance assumption?
+
+### Problem 2
+Complete the ANOVA table below for simple linear regression of $n = 27$ and answer the following questions.
+
+\renewcommand{\arraystretch}{2}
+```{r, echo = FALSE}
+anova_tab <- data.frame(Source = c("Model", "Error", "Total"), df = rep("", 3), 
+                        SS = rep("", 3), MS = c("840", "", ""), F = c("10.5", "", ""))
+anova_tab %>%   
+  kbl(align = "c") %>%
+  column_spec(1, bold = TRUE) %>%
+  column_spec(2, width = "8em") %>%
+  column_spec(3, width = "8em") %>%
+  column_spec(4, width = "8em", background = c("white", "white", "gray")) %>%
+  column_spec(5, width = "8em", background = c("white", "gray", "gray")) %>%
+  row_spec(0, bold = TRUE, italic = TRUE) %>%
+  kable_paper("hover",full_width = F, latex_options = "HOLD_position")
+```
+
+a) Calculate $R^2$.
+
+b) It is known that $X$ and $Y$ used in here are negatively associated. Using the information above, what is the correlation coefficient between $X$ and $Y$?
+
+c) Means and standard deviations of $X$ and $Y$ are given below. Using this and part (b), obtain the estimated regression equation.
+
+\renewcommand{\arraystretch}{1}
+```{r, echo = FALSE}
+mean_sd_tab <- data.frame(Mean = c(110.2, 55.0), SD = c(20.5, 8.2))
+row.names(mean_sd_tab) <- c("X", "Y")
+
+mean_sd_tab %>%   
+  kbl() %>%
+  column_spec(1, bold = TRUE) %>%
+  column_spec(2, width = "3em") %>%
+  column_spec(3, width = "3em") %>%
+  row_spec(0, bold = TRUE) %>%
+  kable_paper("hover",full_width = F, latex_options = "HOLD_position")
+```
+
+
+### Problem 3 (Biostats students only)
+
+*Expected value of a function of random variables*:
+
+In Assignment #5, you learned the joint probability density (or mass) function. Suppose random variables $X$ and $Y$ have a joint probability density/mass function, $f_{X, Y}(x, y)$. How can we calculate the expected value of any function of $X$ and $Y$, e.g., $E\left[ g\left(X, Y\right) \right]$?
+
+**Definition**:
+
+For discrete random variable $X$ and $Y$:
+
+$$E\left[ g\left(X, Y\right) \right] = \sum_x\sum_y g(x, y) \, f_{X, Y}(x, y)$$
+
+For continuous random variable $X$ and $Y$:
+
+$$E\left[ g\left(X, Y\right) \right] = \int ^{\infty}_{-\infty}\int ^{\infty}_{-\infty} g(x, y) \, f_{X, Y}(x, y) \, dxdy$$
+
+**Example**: Let $X$ and $Y$, both continuous have the joint probability density function:
+
+$$ f_{X, Y}(x, y) =  
+\begin{cases}
+\frac{1}{6}(x + 4y), & 0 \le x \le 2, \; 0 \le y \le 1 \\
+0, & \text{elsewhere}
+\end{cases}
+$$
+
+We want to find $E(XY)$.
+
+$$
+\begin{aligned}
+E(XY) &= \int ^{\infty}_{-\infty}\int ^{\infty}_{-\infty} xyf_{X, Y}(x, y) \, dxdy \\
+      &= \int ^1_0 \int ^2_0 xy\frac{1}{6}(x + 4y) \, dxdy \\
+      &= \int ^1_0 \int ^2_0 \frac{1}{6}(x^2y + 4xy^2) \, dxdy \\
+      &= \int ^1_0 \left( \frac{1}{18}x^3y + \frac{1}{3}x^2y^2 \bigg] ^2_0  \right)dy \\
+      &= \int ^1_0 \left( \frac{4}{9}y + \frac{4}{3}y^2 \right)dy =  \frac{2}{9}y^2 + \frac{4}{9}y^3 \bigg]^1_0 = \frac{2}{3}
+\end{aligned}
+$$
+
+\bigskip
+
+### Problem 4 (Biostats students only)
+
+*Marginal probability distributions, independence of RVs*
+
+
