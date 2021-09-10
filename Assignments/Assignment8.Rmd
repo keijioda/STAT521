@@ -84,7 +84,8 @@ $$E\left[ g\left(X, Y\right) \right] = \int ^{\infty}_{-\infty}\int ^{\infty}_{-
 
 **Example**: Let $X$ and $Y$, both continuous have the joint probability density function:
 
-$$ f_{X, Y}(x, y) =  
+$$ 
+f_{X, Y}(x, y) =  
 \begin{cases}
 \frac{1}{6}(x + 4y), & 0 \le x \le 2, \; 0 \le y \le 1 \\
 0, & \text{elsewhere}
@@ -102,6 +103,28 @@ E(XY) &= \int ^{\infty}_{-\infty}\int ^{\infty}_{-\infty} xyf_{X, Y}(x, y) \, dx
       &= \int ^1_0 \left( \frac{4}{9}y + \frac{4}{3}y^2 \right)dy =  \frac{2}{9}y^2 + \frac{4}{9}y^3 \bigg]^1_0 = \frac{2}{3}
 \end{aligned}
 $$
+\bigskip
+
+**Problem**: Let $X$ and $Y$ have the joint probability density function given by:
+
+$$
+ f_{X, Y}(x, y) =  
+\begin{cases}
+4xy, & 0 \le x \le 1, \; 0 \le y \le 1 \\
+0, & \text{elsewhere}
+\end{cases}
+$$
+
+a) Find $E(X)$ and $E(Y)$.
+
+b) The covariance between X and Y can be written as:
+$$cov(X, Y) = E \left[ (X- \mu_X)(Y- \mu_Y)\right] = E(XY) - \mu_X\mu_Y$$
+\setlength{\leftskip}{2em}
+where $\mu_X = E(X)$ and $\mu_Y = E(Y)$. Find $E(XY)$ and $cov(X, Y)$.
+\setlength{\leftskip}{0em}
+
+c) Use the part (b) to find the correlation coefficient between $X$ and $Y$: $\rho_{X, Y}$ Remember, from Lecture 10, the correlation coefficient is defined as:
+$$\rho_{X, Y} = \frac{cov(X, Y)}{\sqrt{var(X)}\sqrt{var(Y)}}$$
 
 \bigskip
 
@@ -109,4 +132,110 @@ $$
 
 *Marginal probability distributions, independence of RVs*
 
+Suppose you have a joint probability distribution of two discrete random variables $X$ and $Y$, $p_{X, Y} (x, y)$, as follows (example taken from Assignment #5):
+
+```{r echo = FALSE, results = 'asis'}
+tab <- matrix(c(0.05, 0.56, 0.61, 0.10, 0.18, 0.28, 0.09, 0.02, 0.11, 0.24, 0.76, 1.00), ncol = 3, byrow = TRUE)
+rownames(tab) <- c("0", "1", "2", "Total")
+colnames(tab) <- c("0", "1", "Total")
+tab %>% 
+  kbl() %>%
+  add_header_above(c("X" = 1, "Y" = 2, " " = 1)) %>% 
+  column_spec(1, bold = T) %>%
+  kable_paper("hover", full_width = F, latex_options = "HOLD_position")
+```
+
+How do we get the marginal probability distribution of $X$, that is, $p_X(x)$ ? This is easy
+because:
+
+$$
+\begin{aligned}
+p_X(0) &= Pr(X = 0) = p_{X, Y}(0, 0) + p_{X, Y}(0, 1) = 0.61 \\
+p_X(1) &= Pr(X = 1) = p_{X, Y}(1, 0) + p_{X, Y}(1, 1) = 0.28 \\
+p_X(2) &= Pr(X = 2) = p_{X, Y}(2, 0) + p_{X, Y}(2, 1) = 0.11
+\end{aligned}
+$$
+
+In general, marginal probability mass functions (for discrete cases) are given by:
+
+$$p_X(x) = \sum_y p_{X, Y}(x, y) \qquad \text{and} \qquad p_Y(y) = \sum_x p_{X, Y}(x, y)$$
+
+Similarly, if $X$ and $Y$ are continuous, marginal density functions are:
+
+$$f_X(x) = \int^{\infty}_{-\infty} f_{X, Y}(x, y)\,dy \qquad \text{and} \qquad f_Y(y) = \int^{\infty}_{-\infty} f_{X, Y}(x, y)\,dx$$
+\bigskip
+
+**Example**: Let $X$ and $Y$, both continuous, have the joint probability density function:
+
+$$
+f_{X, Y}(x, y) =  
+\begin{cases}
+\frac{1}{6}(x + 4y), & 0 \le x \le 2, \; 0 \le y \le 1 \\
+0, & \text{elsewhere}
+\end{cases}
+$$
+
+We want to find $f_X(x)$ and $f_Y(y)$.
+
+For $0 \le x \le 2$,
+$$
+ f_X(x) = \int^{\infty}_{-\infty} f_{X, Y}(x, y)\,dy = \int^{1}_{0} \frac{1}{6}(x + 4y)\,dy = \frac{1}{6}xy + \frac{1}{3}y^2 \bigg] ^1_0 = \frac{x + 2}{6}
+$$
+
+and $f_X(x) = 0$ elsewhere. For $0 \le y \le 1$,
+
+$$
+ f_y(y) = \int^{\infty}_{-\infty} f_{X, Y}(x, y)\,dx = \int^{2}_{0} \frac{1}{6}(x + 4y)\,dx = \frac{1}{12}x^2 + \frac{2}{3}xy \bigg] ^2_0 = \frac{4y + 1}{3}
+$$
+
+and $f_Y(y) = 0$ elsewhere. 
+
+\bigskip
+
+**Problem**: Let $X$ and $Y$ have the joint probability density function given by:
+
+$$
+ f_{X, Y}(x, y) =  
+\begin{cases}
+4xy, & 0 \le x \le 1, \; 0 \le y \le 1 \\
+0, & \text{elsewhere}
+\end{cases}
+$$
+
+a) Find $f_X(x)$ and $f_Y(y)$.
+
+b) If the joint density can be written as the product of individual density functions, i.e.,
+$$f_{XY}(x, y) = f_X(x)f_Y(y)$$
+\setlength{\leftskip}{2em}
+then $X$ and $Y$ are said to be independent random variables. Are $X$ and $Y$ independent?
+\setlength{\leftskip}{0em}
+c) If random variables X and Y are independent, then we have this property:
+$$E(XY) = E(X)E(Y)$$
+\setlength{\leftskip}{2em}
+Find $E(XY)$. Is your answer same as the one you get for Problem 3 part (b)?
+\setlength{\leftskip}{0em}
+
+\bigskip
+
+**Additional notes**:
+If random variables $X$ and $Y$ are independent, then the covariance between $X$ and $Y$ is zero and so is the correlation.
+
+\begin{center}
+If $X$ and $Y$ independent $\implies cov(X, Y) = 0$
+\end{center}
+
+But the converse is not necessarily true. You can have a correlation of zero between $X$ and $Y$ that are not independent. See the following joint probability distribution.
+
+```{r echo = FALSE, results = 'asis'}
+tab <- matrix(c("1/3", "0", "1/3", "2/3", "0", "1/3", "0", "1/3", "1/3", "1/3", "1/3", "1"), ncol = 4, byrow = TRUE)
+rownames(tab) <- c("0", "1", "Total")
+colnames(tab) <- c("0", "1", "2", "Total")
+tab %>% 
+  kbl(align = "r") %>%
+  add_header_above(c("X" = 1, "Y" = 3, " " = 1)) %>% 
+  column_spec(1, bold = T) %>%
+  kable_paper("hover", full_width = F, latex_options = "HOLD_position")
+```
+
+Verify that $cov(X, Y) = E(XY) -E(X)E(Y) = \frac{1}{3} - \left( \frac{1}{3} \right) \left( 1 \right) = 0$. But $X$ and $Y$ are not independent because $Pr(X = 0 \,| \,Y = 0) \ne Pr(X = 0)$.
 
