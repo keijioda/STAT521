@@ -34,6 +34,20 @@ a)	Use SAS, R or Python to compute the mean and its 95% confidence interval for 
 b)	Compute a 95% confidence interval for the difference of mean systolic blood pressure between male and female low birth weight infants. Assume the population variances are equal. Attach your output.
 
 c)	You wish to report your results for publication. Report the results in part (a) and (b) in the following format:
+\begin{center}
+{\small Table 1: Mean systolic blood pressure (in mmHg) and 95\%} \\
+{\small confidence interval of 100 low birth-weight infants by gender} \\
+\bigskip
+\begin{tabular}{ c  r  r }
+ & Mean SBP & 95\% CI \\ 
+\hline
+  Male     &  \#\#.\#    &  (\#\#.\#, \#\#.\#) \\
+Female     &  \#\#.\#    &  (\#\#.\#, \#\#.\#) \\  
+\hline
+Difference &    \#.\#    &  (\phantom{a}\#.\#, \phantom{a}\#.\#) \\  
+\hline
+\end{tabular}
+\end{center}
 
 d)	Do you think it is possible that males and females have the same mean systolic blood pressure? Explain briefly.
 
