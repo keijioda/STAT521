@@ -16,7 +16,7 @@ Do Example 8 of Lecture 3 (page 12).
 
 ### Problem 2 (Computer exercise)
 
-Read my note on the central limit theorem (“Central Limit Theorem.pdf”) and answer following questions using SAS, R, or Python (Show all the relevant output. You do not need to include the SAS/R code):
+Read my note on the central limit theorem (“Central Limit Theorem.pdf”) and answer following questions using SAS, R, or Python (Show all the relevant output. You do not need to include code):
 
 a)	Using the same population, draw 1000 samples of size $n = 5$ and produce a histogram of sample means.  How does it look like?  Report the mean and standard deviation of the sampling distribution.
 
