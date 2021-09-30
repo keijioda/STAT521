@@ -5,6 +5,39 @@ import pandas as pd
 import seaborn as sns
 import matplotlib.pyplot as plt
 
+# Example 1: discrete prob distribution
+x = list(range(5))
+prob = [.06, .20, .30, .25, .19]
+df = pd.DataFrame({"x": x, "prob": prob})
+df
+
+# Calculate x * p(x) and x ^ 2 * p(x)  
+df = df.assign(xp = df.x * df.prob, x2p = df.x ** 2 * df.prob)
+df
+
+# Mean is the sum of x * p(x)
+sum(df.xp)
+
+# Variance: sum(x ^ 2 * prob) - mean ^ 2
+sum(df.x2p) - sum(df.xp) ** 2
+
+# Example 2: discrete prob distribution
+x = list(range(6))
+prob = [.031, .156, .313, .313, .156, .031]
+df = pd.DataFrame({"x": x, "prob": prob})
+df
+
+# Calculate x * p(x) and x ^ 2 * p(x)  
+df = df.assign(xp = df.x * df.prob, x2p = df.x ** 2 * df.prob)
+df
+
+# Mean is the sum of x * p(x)
+sum(df.xp)
+
+# Variance: sum(x ^ 2 * prob) - mean ^ 2
+sum(df.x2p) - sum(df.xp) ** 2
+
+
 # Binomial probabilities
 # Set parameters
 from scipy.stats import binom
