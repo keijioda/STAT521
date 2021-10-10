@@ -15,6 +15,7 @@ plot(dnorm(x) ~ x, xlim = xlim, type = "l", bty = "L", ylab = "Density")
 EmpRuleGC(mean = 0, sd = 1)
 
 # Changing mean, mu
+plot(dnorm(x) ~ x, xlim = xlim, type = "l", bty = "L", ylab = "Density")
 lines(dnorm(x, mean = 1) ~ x, col = "red")
 lines(dnorm(x, mean = -1) ~ x, col = "blue")
 
