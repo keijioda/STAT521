@@ -1,5 +1,5 @@
 
-* STAT 521: Assignment 4;
+* STAT 521: Assignment 6;
 
 * Problem 2 data;
 data prob2;
